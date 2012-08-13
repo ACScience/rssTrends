@@ -43,5 +43,5 @@ gem 'jquery-rails'
 # gem 'ruby-debug'
 
 gem 'therubyracer'
-gem 'simple-rss'
+gem 'feedzirra'
 gem 'heroku'
