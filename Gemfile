@@ -27,6 +27,14 @@ end
 
 gem 'jquery-rails'
 
+gem 'therubyracer'
+gem 'feedzirra'
+gem 'heroku'
+
+group :development do
+  gem 'annotate', '~> 2.4.1.beta'
+  end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -42,6 +50,4 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug'
 
-gem 'therubyracer'
-gem 'feedzirra'
-gem 'heroku'
+
