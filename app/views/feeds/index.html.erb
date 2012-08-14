@@ -1,2 +1,12 @@
-<h1>Feeds</h1>
-<p>Hello World!</p>
+<table>
+  <tr><td width="100">ID</td><td width="100">Name</td><td width="500">Summary</td></tr>
+    <% @feed.each do |f| %>
+    <tr>
+    <td> <%= f.id %> </td> 
+    <td> <%= f.name %> </td> 
+    <td> <%= f.summary %></td> 
+    <td width = "100"><%= link_to "Delete", '#' %> <%= link_to "Edit", '#' %></td>
+
+</tr>
+<% end %>
+</table>
