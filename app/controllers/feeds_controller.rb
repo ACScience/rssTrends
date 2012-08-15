@@ -4,10 +4,13 @@ class FeedsController < ApplicationController
 	end
 	
 	def show
-        @feed = FeedEntry.find(params[:id])
-    end
+      @feed = FeedEntry.find(params[:id])
+  end
 
 	def new
-			FeedEntry.update_from_feed("http://www.spiegel.de/politik/index.rss")
+			@feed = FeedEntry.update_from_feed("http://www.spiegel.de/politik/index.rss")				
+			
+			redirect_to '/feeds.html'
 	end
+
 end
