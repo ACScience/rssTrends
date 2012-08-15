@@ -1,11 +1,20 @@
-<table>
-  <tr><td width="100">ID</td><td width="100">Name</td><td width="500">Summary</td></tr>
+<table class="table table-striped">
+  <tr>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Summary</th>
+  <th>Published</th>
+  <th>Show</th>
+  <th>Update</th>
+  </tr>
     <% @feed.each do |f| %>
     <tr>
     <td> <%= f.id %> </td> 
     <td> <%= f.name %> </td> 
-    <td> <%= f.summary %></td> 
-    <td width = "100"><%= link_to "Delete", '#' %> <%= link_to "Edit", '#' %> <%= link_to "Update", new_feed_path %></td>
+    <td> <%= truncate(f.summary, :length => 150) %></td>
+    <td> <%= f.published_at %>
+    <td><%= link_to 'Show', feed_path(f), :class =>"btn btn-mini" %></td>
+    <td><%= link_to "Update", new_feed_path, :class =>"btn btn-mini" %></td>
 </tr>
 <% end %>
 </table>

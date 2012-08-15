@@ -6,9 +6,29 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+    <div class="container">
+    <ul class="nav">
+    <a class="brand" href="#">
+    RssTrends
+    </a>
+        <li class="active">
+    <a href="#">Allgemein</a>
+    </li>
+        <li><a href="#">Politik</a></li>
+        <li><a href="#">Wirtschaft</a></li>
+        <li><a href="#">Ausland</a></li>
+    </ul>
+    </div>
+    </div>
+    </div>
 <body>
-
-<%= yield %>
-
+    <div class ="container">
+        <div class="row">
+        <div class= "span9"></div>
+            <%= yield %>
+        </div>
+    </div>
 </body>
 </html>

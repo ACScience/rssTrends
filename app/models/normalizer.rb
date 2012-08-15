@@ -1,7 +1,7 @@
 class Test 
  #Methode zum normalisieren der Wörter im Feed   
     def self.normalize(s)
-       s.downcase.gsub(/[äÄ]/, "ae").gsub(/[öÖ]/, "oe").gsub(/[üÜ]/, "ue").gsub(/ [ß]/, "ss").gsub(/[^a-zA-Z\ ]/,"").split.uniq
+       s.downcase.gsub(/[äÄ]/, "ae").gsub(/[öÖ]/, "oe").gsub(/[üÜ]/, "ue").gsub(/[ß]/, "ss").gsub(/[^a-zA-Z\ ]/,"").split.uniq
     end 
  #Die stopwörter werden mit den Feeds abgeglichen   
     def self.deletewords(stopwords, feed)

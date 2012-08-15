@@ -1,6 +1,13 @@
-ID: <%= @feed.id %> <br>
-Name: <%= @feed.name %><br>
-<br>Summary:<br> <%= @feed.summary %><br>
-<br>url:<br> <%= @feed.url %><br>
-<br>Published_at:<br> <%= @feed.published_at %><br>
+  <h3> <%= @feed.name %> </h3> 
+<p><%= @feed.summary %></p>
+
+
+<table class="table table-striped">
+  <tr>
+  <td>ID: <%= @feed.id %> </td>
+    <td>Published: <%= @feed.published_at %></td>
+      <td>Created: <%= @feed.created_at %></td>
+        <td>Updated: <%= @feed.updated_at %></td>
+  </tr>
+<%= link_to 'Back', feeds_path, :class =>"btn btn-mini" %>
 
