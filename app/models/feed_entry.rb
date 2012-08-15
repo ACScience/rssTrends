@@ -8,7 +8,7 @@ class FeedEntry < ActiveRecord::Base
 						:name								=> entry.title,
 						:summary						=> entry.summary,
 						:url								=> entry.url,
-						:published_at				=> entry.published,
+						:published_at				=> entry.published
 			
 					)
 				end
