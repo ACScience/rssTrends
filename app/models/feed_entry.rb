@@ -16,7 +16,6 @@ class FeedEntry < ActiveRecord::Base
 		end
 	end
 
-
 # == Schema Information
 #
 # Table name: feed_entries
