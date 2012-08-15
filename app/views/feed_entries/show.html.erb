@@ -1,0 +1,13 @@
+  <h3> <%= @feed_entry.name %> </h3> 
+<p><%= @feed_entry.summary %></p>
+
+
+<table class="table table-striped">
+  <tr>
+  <td>ID: <%= @feed_entry.id %> </td>
+    <td>Published: <%= @feed_entry.published_at %></td>
+      <td>Created: <%= @feed_entry.created_at %></td>
+        <td>Updated: <%= @feed_entry.updated_at %></td>
+  </tr>
+<%= link_to 'Back', feed_entries_path, :class =>"btn btn-mini" %>
+
