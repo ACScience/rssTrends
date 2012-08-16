@@ -15,7 +15,7 @@ class FeedEntriesController < ApplicationController
 	def new
 			@feed_entry = FeedEntry.update_from_feed("http://www.spiegel.de/politik/index.rss")				
 			
-			redirect_to '/feeds.html'
+			redirect_to '/feed_entries.html'
 	end
 
 end
