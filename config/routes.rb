@@ -1,5 +1,12 @@
 RssTrends::Application.routes.draw do
 
+  get "trends/index"
+
+  get "trends/show"
+
+  get "trends/destroy"
+  
+  resources :trends
 	resources :feed_entries
   # The priority is based upon order of creation:
   # first created -> highest priority.

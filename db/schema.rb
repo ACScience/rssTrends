@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816090416) do
+ActiveRecord::Schema.define(:version => 20120816111830) do
 
   create_table "feed_entries", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(:version => 20120816090416) do
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.boolean  "processed",    :default => false
+  end
+
+  create_table "trends", :force => true do |t|
+    t.string   "trendy_word"
+    t.integer  "counter",     :default => 1
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end

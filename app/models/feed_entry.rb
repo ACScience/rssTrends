@@ -27,5 +27,6 @@ class FeedEntry < ActiveRecord::Base
 #  published_at :datetime
 #  created_at   :datetime        not null
 #  updated_at   :datetime        not null
+#  processed    :boolean         default(FALSE)
 #
 
