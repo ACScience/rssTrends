@@ -6,24 +6,25 @@ class Test
     end 
  # Die stopwörter werden mit den Feeds abgeglichen   
     def self.deletewords(stopwords, feed)
-        puts "---------Array---------"
-        puts feed.to_s
-        puts "---------Array---------"
+#        puts "---------Array---------"
+#        puts feed.to_s
+#        puts "---------Array---------"
             
         stopwords.each do |i| 
             if feed.include?(i) == true
                 feed.delete(i)
-                puts "Wort '#{i}' geloescht"
+#                puts "Wort '#{i}' geloescht"
             end
             
         end
         
-        puts "---------Array---------"
-        puts feed.to_s
-        puts "---------Array---------"
+#        puts "---------Array---------"
+#        puts feed.to_s
+#        puts "---------Array---------"
 
 				return feed
    end
+   
 
  #Die Feeds werden für die Trendgenerierung vorbereitet -> Normalisierung und Löschen der  Stoppwörter
 
@@ -33,20 +34,24 @@ class Test
 			 # Stopp wörter weden eingelesen und als array gespeichert   
    		 f = File.open("public/germanstopwords")
    		 f_lines = f.read.split("\n")
-
+       feed_entries = FeedEntry.all
  			# alle feeds aus der Spalte summary werden heruasgelesen und als string gespeichert und in die methode normalizer übergeben
-   		 feeds = FeedEntry.pluck(:summary).to_s
-   		 feeds = normalize(feeds)
- 			# Stoppwörter werden aus den feeds  gelöscht 
-    	 normalized_feeds = deletewords(f_lines, feeds)
-			 puts normalized_feeds
-			
-       return normalized_feeds
-
+#   		 feeds = FeedEntry.pluck(:summary).to_s
+      
+      feed_entries.each do |feed_entry|
+        unless feed_entry.processed == true
+   		    feeds = normalize(feed_entry.summary)
+ 			    normalized_feed = nil
+    	    normalized_feed = deletewords(f_lines, feeds)     #Stoppwörter werden aus den feeds  gelöscht 
+			    puts normalized_feed
+			    feed_entry.update_attributes(:processed => true)
+			    puts feed_entry.processed
+			    puts feed_entry.id
+		  	end
+      end
 		end
 
-  
-	prepare_feeds
+ prepare_feeds
 
 
 
