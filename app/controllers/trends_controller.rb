@@ -1,6 +1,6 @@
 class TrendsController < ApplicationController
   def index
-  @feed_entries = FeedEntry.all
+  @trends = Trend.find(:all, :order => 'counter')
   end
 
   def show

@@ -39,7 +39,7 @@ class Test
 #   		 feeds = FeedEntry.pluck(:summary).to_s
       
       feed_entries.each do |feed_entry|
-        unless feed_entry.processed == false
+        unless feed_entry.processed == true
    		    feeds = normalize(feed_entry.summary)
  			    normalized_feed = nil
     	    normalized_feed = deletewords(f_lines, feeds)     #Stoppwörter werden aus den feeds  gelöscht 
