@@ -1,6 +1,6 @@
 class FeedEntriesController < ApplicationController
 	def index
-	  @feed_entries = FeedEntry.all 
+	  @feed_entries = FeedEntry.all(:order => 'id') 
 	end
 	
 	def show

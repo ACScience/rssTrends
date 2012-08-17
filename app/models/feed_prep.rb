@@ -1,4 +1,4 @@
-module FeedPrep
+class FeedPrep
 
 	private
 

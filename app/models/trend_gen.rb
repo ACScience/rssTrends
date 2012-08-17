@@ -1,6 +1,4 @@
-require 'feed_prep'
-module TrendGen
-	include FeedPrep
+class TrendGen < FeedPrep
 	
 	def self.createTrends()
 
