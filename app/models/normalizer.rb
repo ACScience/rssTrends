@@ -55,7 +55,7 @@ class Test
             end
             
             unless w == "nil"
-              trend = Trend.new(trendy_word: w)
+              trend = Trend.new(:trendy_word => w)
               trend.save
               puts "gespeichert"
              
