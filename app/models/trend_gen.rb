@@ -16,7 +16,7 @@ class TrendGen < FeedPrep
 					w.to_s
 					double = Trend.all
 					double.each do |d|
-						if d.trendy_word.include?(w) == true
+						if (d.trendy_word == w) == true
 							d.update_attributes(:counter => d.counter + 1)
 							puts "plus1"
 							w = "nil"

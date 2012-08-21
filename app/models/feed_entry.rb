@@ -14,6 +14,10 @@ class FeedEntry < ActiveRecord::Base
 				end
 			end
 		end
+		
+	has_many :relations
+	has_many :trends, :through => :relations	
+
 	end
 
 # == Schema Information

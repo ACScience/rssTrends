@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120816111830) do
+ActiveRecord::Schema.define(:version => 20120821135148) do
 
   create_table "feed_entries", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(:version => 20120816111830) do
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.boolean  "processed",    :default => false
+  end
+
+  create_table "relations", :force => true do |t|
+    t.integer  "feed_id"
+    t.integer  "trend_id"
+    t.text     "trendy_word"
+    t.integer  "trend_counter"
+    t.string   "feed_name"
+    t.text     "feed_text"
+    t.string   "feed_url"
+    t.datetime "published_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "trends", :force => true do |t|
