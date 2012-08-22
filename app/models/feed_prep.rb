@@ -7,7 +7,7 @@ class FeedPrep
        s.downcase.gsub(/[äÄ]/, "ae").gsub(/[öÖ]/, "oe").gsub(/[üÜ]/, "ue").gsub(/[ß]/, "ss").gsub(/[^a-zA-Z\ ]/,"").split.uniq
     end
 
-		# Einlesen der deutschen Stoppwörter aus der Datei
+		# Auslesen der deutschen Stoppwörter aus der Datei
 		def self.readstopwords()
 			f = File.open("public/germanstopwords")
 			f_lines = f.read.split("\n")
@@ -16,7 +16,7 @@ class FeedPrep
 
 		end
 
-		# Einlesen der aktuellen Feeds
+		# Auslesen der aktuellen Feeds aus der Datenbank
 		def self.readfeeds()
 			feed_entries = FeedEntry.all
 			
