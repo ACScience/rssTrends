@@ -3,7 +3,7 @@ class FeedEntry < ActiveRecord::Base
 		def self.update_from_feed(feed_url)
 			feed = Feedzirra::Feed.fetch_and_parse(feed_url)
 			feed.entries.each do |entry|
-				unless exists? :url => entry.url
+				unless exists? :url => entry.url or entry.summary == nil
 					create!(
 						:name								=> entry.title,
 						:summary						=> entry.summary,
