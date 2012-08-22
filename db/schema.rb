@@ -23,14 +23,8 @@ ActiveRecord::Schema.define(:version => 20120821135148) do
   end
 
   create_table "relations", :force => true do |t|
-    t.integer  "feed_id"
+    t.integer  "feed_entry_id"
     t.integer  "trend_id"
-    t.text     "trendy_word"
-    t.integer  "trend_counter"
-    t.string   "feed_name"
-    t.text     "feed_text"
-    t.string   "feed_url"
-    t.datetime "published_at"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

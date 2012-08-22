@@ -9,6 +9,6 @@ class CreateTrends < ActiveRecord::Migration
   end
   
   def down
-      drop_table :trends if ActiveRecord::Base.connection.table_exists? 'trendss'
+      drop_table :trends if ActiveRecord::Base.connection.table_exists? 'trends'
   end
 end

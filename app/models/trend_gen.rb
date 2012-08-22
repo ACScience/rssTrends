@@ -11,6 +11,8 @@ class TrendGen < FeedPrep
 		# Vorbereiten der neuen/hinzugekommenen Feeds zur Trendgenerierung
 		feed_entries.each do |feed_entry|
 			unless feed_entry.processed == true
+				currentFeedId = feed_entry.id
+				puts "Test: #{currentFeedId}"
 				feeds = normalize(feed_entry.summary)
 				normalized_feed = nil
 				normalized_feed = deletewords(stopwords, feeds)
@@ -20,9 +22,12 @@ class TrendGen < FeedPrep
 					w.to_s
 					double = Trend.all
 					double.each do |d|
+					currentTrendId = d.id
 						# Update eines bestehenden Trends (Trendwort existiert schon in der Datenbank)
 						if (d.trendy_word == w) == true
 							d.update_attributes(:counter => d.counter + 1)
+							relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
+							relation.save
 							puts "plus1"
 							w = "nil"
 						end
@@ -31,6 +36,10 @@ class TrendGen < FeedPrep
 					unless w == "nil"
 						trend = Trend.new(:trendy_word => w)
 						trend.save
+						currentTrend = Trend.find_by_trendy_word(w)
+						currentTrendId = currentTrend.id
+						relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
+							relation.save
 						puts "gespeichert"
 					end
 				end
