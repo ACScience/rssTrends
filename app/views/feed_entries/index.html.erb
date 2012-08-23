@@ -5,7 +5,6 @@
   <th>Summary</th>
   <th>Published</th>
   <th>Show</th>
-  <th>Update</th>
   </tr>
     <% @feed_entries.each do |feed_entry| %>
     <tr>
@@ -14,7 +13,6 @@
     <td> <%= truncate(feed_entry.summary, :length => 10000) %></td>
     <td> <%= feed_entry.published_at %>
     <td><%= link_to 'Show', feed_entry, :class =>"btn btn-mini" %></td>
-    <td><%= link_to "Update", new_feed_entry_path, :class =>"btn btn-mini" %></td>
 </tr>
 <% end %>
 </table>

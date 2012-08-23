@@ -1,2 +1,21 @@
-<h1>Trends#show</h1>
-<p>Find me in app/views/trends/show.html.erb</p>
+  <h3> Trendwort: <%= @trend.trendy_word%> </h3> 
+<p>Funde: <%= @trend.counter %></p>
+
+
+<table class="table table-striped"> 
+
+
+  <% @relation.each do |test| %>
+
+      <% @feed_entries.each do |feed_entry| %>
+    <tr> <% if feed_entry.id == test.feed_entry_id %>
+    <td> <%= feed_entry.id %> </td> 
+    <td> <%= feed_entry.name %> </td> 
+    <td> <%= feed_entry.summary %></td>
+    <td> <%= feed_entry.published_at %>
+    </tr><% end %>
+    <% end %>
+<% end %>
+  </table>
+<%= link_to 'Back', :back, :class =>"btn btn-mini" %>
+

@@ -13,9 +13,9 @@ class FeedEntriesController < ApplicationController
   end
 
 	def new
-			@feed_entry = FeedEntry.update_from_feed("http://www.spiegel.de/politik/index.rss")				
-			
-			redirect_to '/feed_entries.html'
+			@feed_entry = FeedEntry.update_from_feed("http://www.spiegel.de/politik/index.rss")
+			Starter.createTrends
+			redirect_to :back
 	end
 
 end

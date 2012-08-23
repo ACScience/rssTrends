@@ -3,13 +3,14 @@
   <th>ID</th>
   <th>Counter</th>
   <th>Trendwort</th>
+  <th>Show</th>
   </tr>
     <% @trends.each do |trend| %>
     <tr>
     <td> <%= trend.id %> </td> 
     <td> <%= trend.counter %> </td> 
     <td> <%= trend.trendy_word %>
-    <td><%= link_to 'Show', '#', :class =>"btn btn-mini" %></td>
+    <td><%= link_to 'Show', trend, :class =>"btn btn-mini" %></td>
 </tr>
 <% end %>
 </table>
