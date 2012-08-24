@@ -1,7 +1,7 @@
 #!/bin/env ruby
 # encoding: utf-8
 
-class FeedPrep
+class FeedPrep < FeedEntry
 
 	private
 
