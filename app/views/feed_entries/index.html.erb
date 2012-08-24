@@ -4,15 +4,13 @@
   <th>Name</th>
   <th>Summary</th>
   <th>Published</th>
-  <th>Show</th>
   </tr>
     <% @feed_entries.each do |feed_entry| %>
     <tr>
     <td> <%= feed_entry.id %> </td> 
-    <td> <%= feed_entry.name %> </td> 
-    <td> <%= truncate(feed_entry.summary, :length => 10000) %></td>
+    <td> <%= link_to(feed_entry.name, feed_entry) %> </td> 
+    <td> <%= truncate(feed_entry.summary, :length => 200) %></td>
     <td> <%= feed_entry.published_at %>
-    <td><%= link_to 'Show', feed_entry, :class =>"btn btn-mini" %></td>
 </tr>
 <% end %>
 </table>
