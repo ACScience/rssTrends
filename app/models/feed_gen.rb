@@ -15,5 +15,8 @@ class FeedGen	< FeedEntry
 				)
 			end
 		end
+
+		return true
+
 	end
 end

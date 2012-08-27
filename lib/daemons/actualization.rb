@@ -12,16 +12,18 @@ Signal.trap("TERM") do
 end
 
 while($running) do
-  
-  # Replace this with your code
-  #Rails.logger.auto_flushing = true
-  #Rails.logger.info "This daemon is still running at #{Time.now}.\n"
-  
-  #sleep 10
 
-	FeedGen.update_from_feed("http://www.spiegel.de/politik/index.rss")
-	sleep 120
+	feedsRetrieved = false
+	# Checking if update_from_feed method has returned
+	while(feedsRetrieved == false) do
+	feedsRetrieved = FeedGen.update_from_feed("http://www.spiegel.de/politik/index.rss")
+	end
+	
+	# Finished retrieving feeds -> starting Trendgeneration
 	#Rails.logger.info "Current Dir: #{Dir.pwd}\n"
 	TrendGen.createTrends
+	
+	# Waiting 10 minutes until next update
 	sleep 10000
+
 end
