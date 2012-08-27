@@ -12,7 +12,7 @@ class FeedPrep < FeedEntry
 
 		# Auslesen der deutschen Stoppwörter aus der Datei
 		def self.readstopwords()
-			f = File.open("public/germanstopwords")
+			f = File.open(Rails.root + "public/germanstopwords")
 			f_lines = f.read.split("\n")
 			
 			return f_lines
