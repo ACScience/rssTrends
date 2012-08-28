@@ -1,4 +1,5 @@
 class FeedGen	< FeedEntry	
+
 	private
 
 	# Empfangen und Speichern von Feeds einer angegebenen URL
@@ -15,8 +16,6 @@ class FeedGen	< FeedEntry
 				)
 			end
 		end
-
 		return true
-
 	end
 end

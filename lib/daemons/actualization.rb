@@ -13,14 +13,19 @@ end
 
 while($running) do
 
-	feedsRetrieved = false
+	# Checking for outdated trends before udpating the feeds
+	checkedForOutdatedTrends = false
+	while(checkedForOutdatedTrends == false) do
+		checkedForOutdatedTrends = TrendGen.deleteTrends
+	end
+
 	# Checking if update_from_feed method has returned
+	feedsRetrieved = false
 	while(feedsRetrieved == false) do
-	feedsRetrieved = FeedGen.update_from_feed("http://www.spiegel.de/politik/index.rss")
+		feedsRetrieved = FeedGen.update_from_feed("http://www.spiegel.de/politik/index.rss")
 	end
 	
 	# Finished retrieving feeds -> starting Trendgeneration
-	#Rails.logger.info "Current Dir: #{Dir.pwd}\n"
 	TrendGen.createTrends
 	
 	# Waiting 10 minutes until next update
