@@ -3,7 +3,6 @@ class FeedEntry < ActiveRecord::Base
 		
 	has_many :relations
 	has_many :trends, :through => :relations	
-
 	end
 
 # == Schema Information

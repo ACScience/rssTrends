@@ -1,6 +1,6 @@
 class TrendsController < ApplicationController
   def index
-  @trends = Trend.find(:all, :order => 'counter DESC')
+  @trends = Trend.paginate(:page => params[:page], :per_page => 20).order('counter DESC')
   end
 
   def show

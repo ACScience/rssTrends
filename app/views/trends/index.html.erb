@@ -1,3 +1,9 @@
+<div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @trends %>
+    </div>
+    <%= will_paginate @trends, :container => false %>
+  </div>
 <table class="table table-striped">
   <tr>
   <th>ID</th>
@@ -16,3 +22,9 @@
 </tr>
 <% end %>
 </table>
+<div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @trends %>
+    </div>
+    <%= will_paginate @trends, :container => false %>
+  </div>
