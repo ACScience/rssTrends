@@ -13,8 +13,11 @@ class FeedEntriesController < ApplicationController
   end
 
 	def new
-			@feed_gen = FeedGen.update_from_feed("http://www.spiegel.de/politik/index.rss")
+	  feedadresses = FeedAdress.all
+	  feedadresses.each do |feedadress| 
+			@feed_gen = FeedGen.update_from_feed(feedadress.url)
 			TrendGen.createTrends
+			end 
 			redirect_to :back
 	end
 
