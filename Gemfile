@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-
+gem 'activeadmin'
 gem 'rails', '3.2.8'
 gem 'will_paginate'
 gem 'pg'
+gem 'meta_search'
 
 #group :development, :test do
 #	gem 'sqlite3', :require => 'sqlite3'

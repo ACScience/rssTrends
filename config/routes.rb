@@ -1,11 +1,16 @@
 RssTrends::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   get "trends/index"
 
   get "trends/show"
 
   get "trends/destroy"
   
+  resources :feed_origins
   resources :trends
 	resources :feed_entries
   # The priority is based upon order of creation:

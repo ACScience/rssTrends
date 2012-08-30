@@ -14,9 +14,9 @@ class FeedEntriesController < ApplicationController
   end
 
 	def new
-	  feedadresses = FeedAdress.all
-	  feedadresses.each do |feedadress| 
-			@feed_gen = FeedGen.update_from_feed(feedadress.url)
+	  feedorigins = FeedOrigin.all
+	  feedorigins.each do |feedorigin| 
+			@feed_gen = FeedGen.update_from_feed(feedorigin.url)
 			TrendGen.createTrends
 			end 
 			redirect_to :back
