@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -46,13 +45,6 @@ ActiveRecord::Schema.define(:version => 20120830143850) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "feed_origins", :force => true do |t|
-    t.string   "url"
-    t.string   "category"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "feed_entries", :force => true do |t|
     t.string   "name"
     t.text     "summary"
@@ -61,6 +53,13 @@ ActiveRecord::Schema.define(:version => 20120830143850) do
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.boolean  "processed",    :default => false
+  end
+
+  create_table "feed_origins", :force => true do |t|
+    t.string   "url"
+    t.string   "category"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "relations", :force => true do |t|

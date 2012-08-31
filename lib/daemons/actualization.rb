@@ -29,6 +29,6 @@ while($running) do
 	TrendGen.createTrends
 	
 	# Waiting 10 minutes until next update
-	sleep 10000
+	sleep 3600
 
 end
