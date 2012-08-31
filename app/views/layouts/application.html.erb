@@ -22,9 +22,9 @@
             <b class="caret"></b>
             </a>
           <ul class="dropdown-menu">
-          <li><a href="#">Allgmein</a></li>
-          <li><a href="#">Politik</a></li>
-          <li><a href="#">Informatik</a></li>
+          <li><%=link_to "Allgemein", feed_entries_path%></li>
+          <%=link_to "Informatik", feed_entries_path(:category => "Informatik")%>
+          <%=link_to "Politik", feed_entries_path(:category => "politik")%>
             </ul>
           </li>
         </ul>

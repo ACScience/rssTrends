@@ -1,7 +1,7 @@
 class FeedEntriesController < ApplicationController
 #require'kaminari'
 	def index
-	  @feed_entries = FeedEntry.paginate(:page => params[:page], :per_page => 15)
+	  @feed_entries = FeedEntry.where("category = ?", params[:category]).paginate(:page => params[:page], :per_page => 15)
 	end
 	
 	def show
