@@ -4,10 +4,11 @@
 
 <table class="table table-striped">
   <tr>
-  <td>ID: <%= @feed_entry.id %> </td>
-    <td>Published: <%= @feed_entry.published_at %></td>
-      <td>Created: <%= @feed_entry.created_at %></td>
-        <td>Updated: <%= @feed_entry.updated_at %></td>
+  <td>ID: <%= @feed_entry.id %></td>
+		<td>Category: <%= @feed_entry.category %></td>		
+	    <td>Published: <%= @feed_entry.published_at %></td>
+	      <td>Created: <%= @feed_entry.created_at %></td>
+	        <td>Updated: <%= @feed_entry.updated_at %></td>
   </tr>
   </table>
 <%= link_to 'Back', :back, :class =>"btn btn-mini" %>

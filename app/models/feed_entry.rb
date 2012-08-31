@@ -1,5 +1,5 @@
 class FeedEntry < ActiveRecord::Base
-  attr_accessible :id, :name, :published_at, :summary, :url, :processed
+  attr_accessible :id, :name, :published_at, :summary, :url, :category, :processed
 		
 	has_many :relations
 	has_many :trends, :through => :relations	
