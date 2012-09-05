@@ -21,8 +21,8 @@ end
 	  feedorigins = FeedOrigin.all
 	  feedorigins.each do |feedorigin| 
 			@feed_gen = FeedGen.update_from_feed(feedorigin.url, feedorigin.category)
+			end
 			TrendGen.createTrends
-			end 
 			redirect_to :back
 	end
 
