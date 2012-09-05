@@ -69,6 +69,7 @@ class TrendGen < FeedPrep
 									currentTrend = Trend.find_by_trendy_word_and_category(w, "Allgemein")
 									currentTrendId = currentTrend.id
 									relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
+									relation.save
 								end
 
 					end			
