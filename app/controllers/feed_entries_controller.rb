@@ -2,9 +2,9 @@ class FeedEntriesController < ApplicationController
 	
 	def index
   if(params.has_key?(:category))
-	  @feed_entries = FeedEntry.where("category = ?", params[:category]).paginate(:page => params[:page], :per_page => 15)
+	  @feed_entries = FeedEntry.where("category = ?", params[:category]).paginate(:page => params[:page], :per_page => 15).order("published_at DESC")
   else
-  @feed_entries = FeedEntry.paginate(:page => params[:page], :per_page => 15)
+  @feed_entries = FeedEntry.paginate(:page => params[:page], :per_page => 15).order("published_at DESC")
   end
 end
 	
