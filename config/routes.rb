@@ -9,7 +9,8 @@ RssTrends::Application.routes.draw do
   get "trends/show"
 
   get "trends/destroy"
-  
+
+  root :to => 'feeds#index' 
   resources :feed_origins
   resources :trends
 	resources :feed_entries

@@ -28,8 +28,9 @@
       <%= page_entries_info @trends %>
     </div>
     <%= will_paginate @trends, :container => false %>
-  </div>
+
      <span style="float:right">
   <%= link_to "json", trends_path(:format=>:json) %>
   <%= link_to "xml", trends_path(:format=>:xml) %>
   </span></h3>
+    </div>

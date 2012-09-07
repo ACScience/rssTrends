@@ -20,7 +20,7 @@ class TrendsController < ApplicationController
 
       respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @trend }
+      format.json { render :json => @trend}
       format.xml { render :xml => @trend}
     end
   end

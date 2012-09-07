@@ -5,6 +5,7 @@
     <%= will_paginate @feed_entries, :container => false %>
   </div>
 		<br/>
+
 <table class="table table-striped">
   <tr>
   <th>Name</th>
@@ -26,8 +27,9 @@
       <%= page_entries_info @feed_entries %>
     </div>
     <%= will_paginate @feed_entries, :container => false %>
-  </div>
+
    <span style="float:right">
   <%= link_to "json", feed_entries_path(:format=>:json) %>
   <%= link_to "xml", feed_entries_path(:format=>:xml) %>
   </span></h3>
+  </div>
