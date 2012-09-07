@@ -28,7 +28,7 @@ while($running) do
 	# Finished retrieving feeds -> starting Trendgeneration
 	TrendGen.createTrends
 	
-	# Waiting 1 hour until next update
-	sleep 216000
+	# Waiting 2 hour until next update
+	sleep(2.hours)
 
 end
