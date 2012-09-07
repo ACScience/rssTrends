@@ -7,7 +7,6 @@
 		<br/>
 <table class="table table-striped">
   <tr>
-  <th>ID</th>
   <th>Name</th>
   <th>Summary</th>
 	<th>Category</th>
@@ -15,7 +14,6 @@
   </tr>
     <% @feed_entries.each do |feed_entry| %>
     <tr>
-    <td> <%= feed_entry.id %> </td> 
     <td> <%= link_to(feed_entry.name, feed_entry) %> </td> 
     <td> <%= truncate(feed_entry.summary, :length => 200) %></td>
 		<td> <%= feed_entry.category %>
@@ -29,3 +27,7 @@
     </div>
     <%= will_paginate @feed_entries, :container => false %>
   </div>
+   <span style="float:right">
+  <%= link_to "json", feed_entries_path(:format=>:json) %>
+  <%= link_to "xml", feed_entries_path(:format=>:xml) %>
+  </span></h3>

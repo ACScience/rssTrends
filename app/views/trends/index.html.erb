@@ -7,7 +7,6 @@
 <br/>
 <table class="table table-striped">
   <tr>
-  <th>ID</th>
   <th>Counter</th>
   <th>Trendwort</th>
   <th>Kategorie</th>
@@ -16,7 +15,6 @@
   </tr>
     <% @trends.each do |trend| %>
     <tr>
-    <td> <%= trend.id %> </td> 
     <td> <%= trend.counter %> </td> 
     <td> <%= link_to(trend.trendy_word, trend) %></td>
         <td> <%= trend.category %></td>
@@ -31,3 +29,7 @@
     </div>
     <%= will_paginate @trends, :container => false %>
   </div>
+     <span style="float:right">
+  <%= link_to "json", trends_path(:format=>:json) %>
+  <%= link_to "xml", trends_path(:format=>:xml) %>
+  </span></h3>
