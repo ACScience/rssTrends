@@ -10,6 +10,7 @@
   <th>ID</th>
   <th>Counter</th>
   <th>Trendwort</th>
+  <th>Kategorie</th>
   <th>Last seen</th>
   <th>First seen</th>
   </tr>
@@ -17,7 +18,8 @@
     <tr>
     <td> <%= trend.id %> </td> 
     <td> <%= trend.counter %> </td> 
-    <td> <%= link_to(trend.trendy_word, trend) %></td> 
+    <td> <%= link_to(trend.trendy_word, trend) %></td>
+        <td> <%= trend.category %></td>
     <td> <%= trend.updated_at %> </td>
     <td><%= trend.created_at %></td>
 </tr>

@@ -1,7 +1,12 @@
 class TrendsController < ApplicationController
   def index
-  @trends = Trend.paginate(:page => params[:page], :per_page => 20).order('counter DESC')
+	if(params.has_key?(:category))
+	  @trends = Trend.where("category = ?", params[:category]).paginate(:page => params[:page], :per_page => 15)
+	else
+	@trends = Trend.where(category: "Allgemein").paginate(:page => params[:page], :per_page => 15)
+	end
   end
+
 
   def show
   @trend = Trend.find(params[:id])
