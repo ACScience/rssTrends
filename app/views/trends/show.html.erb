@@ -1,26 +1,33 @@
   <h3> Trendwort: <%= @trend.trendy_word%> </h3> 
-<p>Funde: <%= @trend.counter %></p>
 
+  <p>Funde: <%= @trend.counter %></p>
 
-<table class="table table-striped"> 
-
-
-  <% @relation.each do |test| %>
-
-      <% @feed_entries.each do |feed_entry| %>
-    <tr> <% if feed_entry.id == test.feed_entry_id %>
-    <td> <%= feed_entry.name %> </td> 
-    <td> <%= feed_entry.summary %></td>
-		<td> <%= feed_entry.category %></td>
-    <td> <%= feed_entry.published_at %>
-    </tr><% end %>
+  <table class="table table-striped"> 
+    <% @trend_entries.each do |feed_entry| %>
+    <tr>
+      <td> <%= feed_entry.name %> </td> 
+      <td> <%= feed_entry.summary %></td>
+      <td> <%= feed_entry.category %></td>
+      <td> <%= feed_entry.published_at %>
+    </tr>
     <% end %>
-<% end %>
   </table>
-<%= link_to 'Back', :back, :class =>"btn btn-mini" %>
 
-     <span style="float:right">
-  <%= link_to "json", trend_path(:format=>:json) %>
-  <%= link_to "xml", trend_path(:format=>:xml) %>
-  </span></h3>
 
+
+  <%= link_to 'Back', :back, :class =>"btn btn-mini" %>
+
+
+
+
+<div class="digg_pagination">
+    <div clas="page_info">
+      <%= page_entries_info @trend_entries %>
+    </div>
+      <%= will_paginate @trend_entries, :container => false %>
+
+      <span style="float:right">
+        <%= link_to "json", trend_path(:format=>:json) %>
+        <%= link_to "xml", trend_path(:format=>:xml) %>
+      </span></h3>
+</div>
