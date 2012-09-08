@@ -36,8 +36,12 @@ class TrendGen < FeedPrep
 								puts "plus1"
 
 								gT = Trend.find_by_trendy_word_and_category(w, "Allgemein")
-								currentTrendId = gT.id								
-								# Kein zusätzlicher Check nötig, da es schon in einer anderen Kategorie existiert => und somit auch als allgemeiner Trend								
+									# Eigentlich kein zusätzlicher Check nötig, da es schon in einer anderen Kategorie existiert => und somit auch als allgemeiner Trend
+									# Check erkennt Inkonsistenz der Datenbank -> wenn zum Beispiel einzelne Trends aus Testzwecken über die Konsole gelöscht wurden
+									if gT.id == nil
+										puts "ERROR -> Inconsistent Relation"
+									end
+								currentTrendId = gT.id															
 								gT.update_attributes(:counter => gT.counter + 1)
 								relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 								relation.save										
@@ -83,15 +87,58 @@ class TrendGen < FeedPrep
 	end
 	
 	def self.deleteTrends()
-		outdatedTrends = Trend.where("updated_at < ?", 7.days.ago)
-		outdatedTrends.each do |oT|			
-			outdatedTrendId = oT.id
-			outdatedRelations = Relation.find(:all, :conditions => {:trend_id => outdatedTrendId})
-			oT.destroy			
-				outdatedRelations.each do |oR|
-					oR.destroy
+	outdatedTrends = Trend.where("updated_at < ?", 1.minute.ago)
+	outdatedTrends.each do |oT|
+		
+		# Sichere die nötigen Trend Eigenschaften
+		oTid = oT.id
+		oTtrendy_word = oT.trendy_word
+		oTcounter = oT.counter
+		# Sichere die Abhängigkeiten zu den Feeds
+		outdatedFeedRelations = Relation.find_by_trend_id(oTid)
+		
+			# Handelt es sich um einen Trend der Kategorie "Allgemein" müssen auch die zugehörigen Trends anderer Kategorien gelöscht werden
+			if oT.category == "Allgemein"
+			
+				# Lösche aktuellen Trend aus Trends und alle Einträge aus der Relation Tabelle, welche diese TrendId beinhalten
+				oT.destroy
+			
+				# Lösche die zugehörigen Trends anderer Kategorien mit dem gleichen Trendwort, da diese auch veraltet sein müssen (ebenfalls aus der Trend und Relation Tabelle)
+				dependentTrends = Trend.find_by_trendy_word(oTtrendy_word)
+					dependentTrends.each do |dT|
+						dt.destroy
+					end
+					
+
+			else
+			    # Handelt es sich um keinen Trend der Kategorie "Allgemein" wird dieser samt Abhängigkeiten gelöscht
+				oT.destroy
+				
+				# Teste, ob der zugehörige allgemeine Trend noch aus einer anderen Kategorie besteht oder nicht
+				generalTrend = Trend.find_by_trendy_word_and_category(oTtrendy_word, "Allgemein")
+					
+					# Wenn der allgemeine Trend aus mehreren Trend Kategorien besteht -> update des allgemeinen Trends
+					if (generalTrend.counter - oT.counter) > 0
+						generalTrend.update_attributes(:counter => generalTrend.counter - oTcounter)
+					# Ansonsten, Löschen des allgemeinen Trends und seiner Abhängigkeiten
+					else
+						generalTrend.destroy
+					end
+			end
+		
+		# Überprüfe ob die Feeds aus denen die gelöschten Trends entstanden sind, noch in weiteren Trends vorkommen -> wenn nicht werden diese ebenfalls gelöscht
+		#unless outdatedFeedRelations != nil
+		outdatedFeedRelations.each do |oFR|
+			# Lese die FeedIds der Feeds aus, welche zu der Entstehung des Trends beigetragen haben
+			feedId = oFR.feed_entry_id
+				# Prüfe ob noch weitere Abhängigkeiten zu dem Feed bestehen
+				unless Relation.exists?(:feed_entry_id => feedId)
+					orphanedFeeds = FeedEntry.find_by_id(feedId)
+					orphanedFeeds.destroy
 				end
 		end
-	return true
-	end
+		#end
+end
+	return true			
+end
 end
