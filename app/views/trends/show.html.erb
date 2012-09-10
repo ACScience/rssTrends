@@ -5,10 +5,11 @@
   <table class="table table-striped"> 
     <% @trend_entries.each do |feed_entry| %>
     <tr>
+	  <td> <%= feed_entry.id %> </td>
       <td> <%= feed_entry.name %> </td> 
       <td> <%= feed_entry.summary %></td>
       <td> <%= feed_entry.category %></td>
-      <td> <%= feed_entry.published_at %>
+      <td> <%= feed_entry.published_at %> </td>
     </tr>
     <% end %>
   </table>
