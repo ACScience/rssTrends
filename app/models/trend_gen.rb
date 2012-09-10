@@ -81,17 +81,4 @@ class TrendGen < FeedPrep
 				end
 		end
 	end
-	
-	def self.deleteTrends()
-		outdatedTrends = Trend.where("updated_at < ?", 7.days.ago)
-		outdatedTrends.each do |oT|			
-			outdatedTrendId = oT.id
-			outdatedRelations = Relation.find(:all, :conditions => {:trend_id => outdatedTrendId})
-			oT.destroy			
-				outdatedRelations.each do |oR|
-					oR.destroy
-				end
-		end
-	return true
-	end
 end
