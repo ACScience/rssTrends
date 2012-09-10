@@ -111,7 +111,6 @@ class TrendGen < FeedPrep
 				oT.destroy
 							
 				# Lösche die Abhängigkeiten der zugehörigen Trends anderer Kategorien
-				#dependentTrends = Trend.where(:trendy_word => oTtrendy_word)
 				dependentTrends = Trend.find(:all, :conditions => ["trendy_word = ? AND category != ?", oTtrendy_word, "Allgemein"])
 				dependentTrends.each do |dT|
 					outdatedRelations = dT.relations
@@ -132,7 +131,6 @@ class TrendGen < FeedPrep
 				oT.destroy
 				
 				# Teste, ob der zugehörige allgemeine Trend noch aus einer anderen Kategorie besteht oder nicht
-				#generalTrend = Trend.find_by_trendy_word_and_category(oTtrendy_word, "Allgemein")
 				generalTrend = Trend.where(:trendy_word => oTtrendy_word, :category => "Allgemein")
 				generalTrend.each do |gT|
 					# Wenn der allgemeine Trend aus mehreren Trend Kategorien besteht -> update des allgemeinen Trends
