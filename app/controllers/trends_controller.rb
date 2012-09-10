@@ -15,8 +15,7 @@ class TrendsController < ApplicationController
 
   def show
     @trend = Trend.find(params[:id])
-    @relation = Relation.find(:all,:conditions => {:trend_id => @trend.id})
-    @feed_entries = FeedEntry.all
+    @trend_entries=@trend.feed_entries.paginate(:page => params[:page], :per_page => 15).order("published_at DESC")
 
       respond_to do |format|
       format.html # show.html.erb
