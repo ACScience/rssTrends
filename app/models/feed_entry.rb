@@ -3,8 +3,15 @@ class FeedEntry < ActiveRecord::Base
 		
 	has_many :relations
 	has_many :trends, :through => :relations	
-	end
 
+
+
+  def self.deletetrends(time)
+    FeedEntry.destroy_all(['published_at < ?', time])
+    Trend.counterupdate
+  end
+  
+end
 # == Schema Information
 #
 # Table name: feed_entries

@@ -30,15 +30,13 @@ class TrendGen < FeedPrep
 						currentTrendId = d.id
 							# Update eines bestehenden Trends (Trendwort existiert schon in der Datenbank)
 							if (d.trendy_word == w) == true && (d.category == currentFeedCat) == true
-								d.update_attributes(:counter => d.counter + 1)
 								relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 								relation.save
-								puts "plus1"
+
 
 								gT = Trend.find_by_trendy_word_and_category(w, "Allgemein")
 								currentTrendId = gT.id								
 								# Kein zusätzlicher Check nötig, da es schon in einer anderen Kategorie existiert => und somit auch als allgemeiner Trend								
-								gT.update_attributes(:counter => gT.counter + 1)
 								relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 								relation.save										
 								
@@ -59,7 +57,6 @@ class TrendGen < FeedPrep
 								gT = Trend.find_by_trendy_word_and_category(w, "Allgemein")
 									if gT != nil
 										currentTrendId = gT.id
-										gT.update_attributes(:counter => gT.counter + 1)
 										relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 										relation.save
 									else

@@ -3,7 +3,16 @@ class Trend < ActiveRecord::Base
 
 	has_many :relations
 	has_many :feed_entries, :through => :relations
-	
+
+  def self.counterupdate
+    trends = Trend.all
+    trends.each do |trend|
+      trend.update_attributes(:counter => trend.feed_entries.count)
+    end
+    Trend.destroy_all(['counter = ?', 0])
+  end
+
+  
 end
 # == Schema Information
 #
