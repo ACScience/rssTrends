@@ -87,7 +87,7 @@ class TrendGen < FeedPrep
 	end
 	
 	def self.deleteOutdatedTrends()
-	outdatedTrends = Trend.where("updated_at < ?", 12.hours.ago)
+	outdatedTrends = Trend.where("updated_at < ?", 13.minutes.ago)
 	unless outdatedTrends == nil
 	outdatedTrends.each do |oT|
 		
@@ -95,6 +95,7 @@ class TrendGen < FeedPrep
 		oTid = oT.id
 		oTtrendy_word = oT.trendy_word
 		oTcounter = oT.counter
+		oTcategory = oT.category
 		# Sichere die mit dem Trend assoziierten Feeds
 		outdatedFeedRelations = Relation.where(:trend_id => oTid)
 		
@@ -136,6 +137,16 @@ class TrendGen < FeedPrep
 					# Wenn der allgemeine Trend aus mehreren Trend Kategorien besteht -> update des allgemeinen Trends
 					if (gT.counter - oTcounter > 0) == true
 						gT.update_attributes(:counter => gT.counter - oTcounter)
+						relatedFeeds = FeedEntry.where(:category => oTcategory)
+							# Die Feeds des gelöschten, kategorisierten Trends werden auch von dem allgemeinen/aktualisierten Trend entkoppelt
+							# Löschen der spezifischen Abhängigkeiten
+							relatedFeeds.each do |rF|
+								outdatedCatRelations = rF.relations.where(:trend_id => gT.id)
+								outdatedCatRelations.each do |oCR|
+									oCR.destroy
+								end
+							end
+							
 					# Ansonsten, Löschen der Abhängigkeiten des allgemeinen Trends
 					else
 						outdatedRelations = gT.relations
