@@ -14,16 +14,20 @@ end
 while($running) do
 
 	# Checking for outdated trends before udpating the feeds
-	checkedForOutdatedTrends = false
-	while(checkedForOutdatedTrends == false) do
-		checkedForOutdatedTrends = TrendGen.deleteTrends
-	end
+	#checkedForOutdatedTrends = false
+	#while(checkedForOutdatedTrends == false) do
+	#	checkedForOutdatedTrends = TrendGen.deleteTrends
+	#end
 
 	# Checking if update_from_feed method has returned
-	feedsRetrieved = false
-	while(feedsRetrieved == false) do
-		feedsRetrieved = FeedGen.update_from_feed("http://www.spiegel.de/politik/index.rss")
+	feedOrigins = FeedOrigin.all
+	feedOrigins.each do |fO|
+	FeedGen.update_from_feed(fO.url, fO.category)
 	end
+	#feedsRetrieved = false
+	#while(feedsRetrieved == false) do
+	#	feedsRetrieved = FeedGen.update_from_feed("http://www.spiegel.de/politik/index.rss")
+	#end
 	
 	# Finished retrieving feeds -> starting Trendgeneration
 	TrendGen.createTrends
