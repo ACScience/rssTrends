@@ -11,18 +11,39 @@ Signal.trap("TERM") do
   $running = false
 end
 
+$newInstance = true
+	
 while($running) do
-
-	# Checking if update_from_feed method has returned
+		
+	# Erstellen einer Logdatei, um die Zeitintervalle
+	# überprüfen zu können (während der Daemon aktiv ist)
+	if($newInstance == true)
+	f = File.open(Rails.root + "log/update.log", "w")
+	f.write("######################################\n")
+	f.write("Logfile => aktuelle Update-Intervalle\n")
+	f.write("######################################\n\n")
+	f.close
+	$newInstance = false
+	end
+	
+	# Update Zeitpunkte in der update.log Datei anhängen
+	f = File.open(Rails.root + "log/update.log", "a")
+	f.write(Time.now)
+	f.write("\n")
+	f.close
+		
+	# Abfragen und Empfangen neuer Feeds
 	feedOrigins = FeedOrigin.all
 	feedOrigins.each do |feedorigin|
 	FeedGen.update_from_feed(feedorigin.url, feedorigin.category)
 	end
 	
-	# Finished retrieving feeds -> starting Trendgeneration
+	# Trend Erstellung starten
 	TrendGen.createTrends
+	
+	# Veraltete Feeds löschen und betroffene Trends updaten
 	FeedEntry.deletetrends(7.days.ago)
-
-	# Waiting 2 hour until next update
-	sleep(2.hours)
+	
+	# 2 Stunden warten bis zum nächsten Update
+	sleep 120
 end
