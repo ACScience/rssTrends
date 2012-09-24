@@ -29,7 +29,7 @@ class FeedEntriesController < ApplicationController
 			@feed_gen = FeedGen.update_from_feed(feedorigin.url, feedorigin.category)
 			end
 			TrendGen.createTrends
-      FeedEntry.deletetrends(7.days.ago)
+			FeedEntry.deletetrends(7.days.ago)
  			redirect_to :back
  	end
 end
