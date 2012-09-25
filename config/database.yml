@@ -48,6 +48,8 @@ test:
   username: postgres
   password: 12pg12
   template: template0
+  host: localhost
+  port: 5432
 
 production:
   adapter: postgresql
