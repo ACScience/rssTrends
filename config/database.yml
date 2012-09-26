@@ -12,6 +12,17 @@
 # Configure Using Gemfile
 # gem 'pg'
 
+production:
+  adapter: postgresql
+  encoding: utf-8
+  database: rssTrends_production
+  pool: 5
+  username: postgres
+  password: 12pg12
+  template: template0
+  host: localhost
+  port: 5432
+
 development:
   adapter: postgresql
   encoding: utf-8
@@ -51,13 +62,4 @@ test:
   host: localhost
   port: 5432
 
-production:
-  adapter: postgresql
-  encoding: utf-8
-  database: rssTrends_production
-  pool: 5
-  username: postgres
-  password: 12pg12
-  template: template0
-  host: localhost
-  port: 5432
+
