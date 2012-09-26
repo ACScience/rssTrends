@@ -20,8 +20,6 @@ production:
   username: postgres
   password: 12pg12
   template: template0
-  host: localhost
-  port: 5432
 
 development:
   adapter: postgresql
@@ -59,7 +57,5 @@ test:
   username: postgres
   password: 12pg12
   template: template0
-  host: localhost
-  port: 5432
 
 
