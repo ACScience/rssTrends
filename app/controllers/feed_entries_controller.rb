@@ -23,13 +23,13 @@ class FeedEntriesController < ApplicationController
     end
   end
 
-#	def new
-#	  feedorigins = FeedOrigin.all
-#	  feedorigins.each do |feedorigin| 
-#			@feed_gen = FeedGen.update_from_feed(feedorigin.url, feedorigin.category)
-#			end
-#			TrendGen.createTrends
-#			FeedEntry.deletetrends(7.days.ago)
-#			redirect_to :back
-# 	end
+	def new
+	  feedorigins = FeedOrigin.all
+	  feedorigins.each do |feedorigin| 
+			@feed_gen = FeedGen.update_from_feed(feedorigin.url, feedorigin.category)
+			end
+			TrendGen.createTrends
+			FeedEntry.deletetrends(7.days.ago)
+			redirect_to :back
+ 	end
 end
