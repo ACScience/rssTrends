@@ -45,5 +45,5 @@ while($running) do
 	FeedEntry.deletetrends(2.days.ago)
 	
 	# 2 Stunden warten bis zum nächsten Update
-	sleep 120
+	sleep 7200
 end
