@@ -35,7 +35,7 @@ while($running) do
 	# Abfragen und Empfangen neuer Feeds
 	feedOrigins = FeedOrigin.all
 	feedOrigins.each do |feedorigin|
-	FeedGen.update_from_feed(feedorigin.url, feedorigin.category)
+	@feed_gen = FeedGen.update_from_feed(feedorigin.url, feedorigin.category)
 	end
 	
 	# Trend Erstellung starten
