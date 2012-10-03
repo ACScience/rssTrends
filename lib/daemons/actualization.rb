@@ -42,7 +42,7 @@ while($running) do
 	TrendGen.createTrends
 	
 	# Veraltete Feeds löschen und betroffene Trends updaten
-	FeedEntry.deletetrends(2.days.ago)
+	FeedEntry.deletetrends(7.days.ago)
 	
 	# 2 Stunden warten bis zum nächsten Update
 	sleep 7200
