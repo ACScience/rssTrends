@@ -3,7 +3,7 @@ class TrendsController < ApplicationController
     if(params.has_key?(:category))
       @trends = Trend.where("category = ?", params[:category]).paginate(:page => params[:page], :per_page => 15).order("counter DESC")
     else
-      @trends = Trend.where(:category => "Allgemein").paginate(:page => params[:page], :per_page => 15).order("counter DESC")
+      @trends = Trend.where(:category => "General").paginate(:page => params[:page], :per_page => 15).order("counter DESC")
     end
       respond_to do |format|
       format.html # show.html.erb

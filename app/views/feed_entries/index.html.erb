@@ -10,14 +10,14 @@
   <tr>
   <th>Name</th>
   <th>Summary</th>
-	<th>Category</th>
+  <th>Category</th>
   <th>Published</th>
   </tr>
     <% @feed_entries.each do |feed_entry| %>
     <tr>
     <td> <%= link_to(feed_entry.name, feed_entry) %> </td> 
     <td> <%= truncate(feed_entry.summary, :length => 200) %></td>
-		<td> <%= feed_entry.category %>
+	<td> <%= feed_entry.category %>
     <td> <%= feed_entry.published_at %>
 </tr>
 <% end %>

@@ -1,14 +1,20 @@
-  <h3> Trendwort: <%= @trend.trendy_word%> </h3> 
+  <h3> Trendword: <%= @trend.trendy_word%> </h3> 
 
-  <p>Funde: <%= @trend.counter %></p>
+  <p>Found: <%= @trend.counter %></p>
 
   <table class="table table-striped"> 
+	<tr>
+	<th>Name</th>
+	<th>Summary</th>
+	<th>Category</th>
+	<th>Published</th>
+	</tr>
     <% @trend_entries.each do |feed_entry| %>
     <tr>
-      <td> <%= feed_entry.name %> </td> 
+      <td> <%= link_to(feed_entry.name, feed_entry) %> </td> 
       <td> <%= feed_entry.summary %></td>
       <td> <%= feed_entry.category %></td>
-      <td> <%= feed_entry.published_at %>
+      <td> <%= feed_entry.published_at %></td>
     </tr>
     <% end %>
   </table>

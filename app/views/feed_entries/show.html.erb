@@ -1,12 +1,13 @@
-  <h3> <%= @feed_entry.name %> </h3> 
+<h3> <%= @feed_entry.name %> </h3> 
 <p><%= @feed_entry.summary %></p>
 
 
 <table class="table table-striped">
   <tr>
-		<td>Category: <%= @feed_entry.category %></td>		
-	    <td>Published: <%= @feed_entry.published_at %></td>
-	      <td>Created: <%= @feed_entry.created_at %></td>
+		<td><b>Category:</b><br><br> <%= @feed_entry.category %></td>
+		<td><b>Source:</b><br><br> <%= @feed_entry.url %></td>	
+	    <td><b>Published:</b><br><br> <%= @feed_entry.published_at %></td>
+	    <td><b>Created:</b><br><br> <%= @feed_entry.created_at %></td>
   </tr>
   </table>
 <%= link_to 'Back', :back, :class =>"btn btn-mini" %>
