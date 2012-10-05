@@ -8,18 +8,19 @@
 <table class="table table-striped">
   <tr>
   <th>Counter</th>
-  <th>Trendwort</th>
-  <th>Kategorie</th>
-  <th>Last seen</th>
+  <th>Trendword</th>
+  <th>Category</th>
   <th>First seen</th>
+  <th>Last seen</th>
   </tr>
     <% @trends.each do |trend| %>
     <tr>
     <td> <%= trend.counter %> </td> 
     <td> <%= link_to(trend.trendy_word, trend) %></td>
-        <td> <%= trend.category %></td>
-    <td> <%= trend.updated_at %> </td>
+    <td> <%= trend.category %></td>
     <td><%= trend.created_at %></td>
+    <td> <%= trend.updated_at %> </td>
+    
 </tr>
 <% end %>
 </table>

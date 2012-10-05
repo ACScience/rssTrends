@@ -34,7 +34,7 @@ class TrendGen < FeedPrep
 								relation.save
 
 
-								gT = Trend.find_by_trendy_word_and_category(w, "Allgemein")
+								gT = Trend.find_by_trendy_word_and_category(w, "General")
 								currentTrendId = gT.id								
 								# Kein zusätzlicher Check nötig, da es schon in einer anderen Kategorie existiert => und somit auch als allgemeiner Trend								
 								relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
@@ -54,15 +54,15 @@ class TrendGen < FeedPrep
 								relation.save
 								puts "gespeichert"
 		
-								gT = Trend.find_by_trendy_word_and_category(w, "Allgemein")
+								gT = Trend.find_by_trendy_word_and_category(w, "General")
 									if gT != nil
 										currentTrendId = gT.id
 										relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 										relation.save
 									else
-										gT = Trend.new(:trendy_word => w, :category => "Allgemein")
+										gT = Trend.new(:trendy_word => w, :category => "General")
 										gT.save
-										currentTrend = Trend.find_by_trendy_word_and_category(w, "Allgemein")
+										currentTrend = Trend.find_by_trendy_word_and_category(w, "General")
 										currentTrendId = currentTrend.id
 										relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 										relation.save

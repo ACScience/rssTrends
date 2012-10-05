@@ -31,5 +31,9 @@ class FeedEntriesController < ApplicationController
 			TrendGen.createTrends
 			FeedEntry.deletetrends(7.days.ago)
 			redirect_to :back
+<<<<<<< HEAD
  	end
+=======
+	end
+>>>>>>> master
 end
