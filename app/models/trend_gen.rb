@@ -53,12 +53,14 @@ class TrendGen < FeedPrep
 								relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 								relation.save
 								puts "gespeichert"
-		
+								# Überprüfen ob das aktuelle Trendwort schon in einer anderen Kategorie besteht
 								gT = Trend.find_by_trendy_word_and_category(w, "General")
+									# Falls es schon existiert neue Relation zur Kategorie "General" hinzufügen
 									if gT != nil
 										currentTrendId = gT.id
 										relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 										relation.save
+									# Falls es noch nicht existiert anlegen eines neuen Trends der Kategorie "General" und zufügen einer neuen Relation
 									else
 										gT = Trend.new(:trendy_word => w, :category => "General")
 										gT.save
