@@ -4,6 +4,7 @@ class Trend < ActiveRecord::Base
 	has_many :relations
 	has_many :feed_entries, :through => :relations
 
+  # Methode zum Updaten der Trends (counter) und zum Löschen von verwaisten Trends
   def self.counterupdate
     trends = Trend.all
     trends.each do |trend|
@@ -24,4 +25,3 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
-
