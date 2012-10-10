@@ -48,7 +48,6 @@
   <h3 class="section-header">Defined In</h3>
   <ul>
     <li>script/rails
-    <li>normailze_feeds.rb
   </ul>
 </nav>
 
@@ -65,17 +64,7 @@
 </nav>
 
     
-    <!-- Method Quickref -->
-<nav id="method-list-section" class="section">
-  <h3 class="section-header">Methods</h3>
-
-  <ul class="link-list">
     
-    <li><a href="#method-i-normalize">#normalize</a>
-    
-  </ul>
-</nav>
-
   </div>
 
   <div id="project-metadata">
@@ -86,13 +75,17 @@
   
     <li class="file"><a href="./Gemfile.html">Gemfile</a>
   
+    <li class="file"><a href="./Gemfile~.html">Gemfile~</a>
+  
     <li class="file"><a href="./README.html">README</a>
   
     <li class="file"><a href="./README_rdoc.html">README</a>
   
     <li class="file"><a href="./Rakefile.html">Rakefile</a>
   
-    <li class="file"><a href="./public/germanStopwords.html">germanStopwords</a>
+    <li class="file"><a href="./lib/daemon_generator/README.html">README</a>
+  
+    <li class="file"><a href="./lib/daemon_generator/daemon_generator/generators/daemon/USAGE.html">USAGE</a>
   
     <li class="file"><a href="./public/germanstopwords.html">germanstopwords</a>
   
@@ -106,6 +99,14 @@
 
   <ul class="link-list">
   
+    <li><a href="./WillPaginate.html">WillPaginate</a>
+  
+    <li><a href="./WillPaginate/ActiveRecord.html">WillPaginate::ActiveRecord</a>
+  
+    <li><a href="./WillPaginate/ActiveRecord/RelationMethods.html">WillPaginate::ActiveRecord::RelationMethods</a>
+  
+    <li><a href="./WillPaginate/CollectionMethods.html">WillPaginate::CollectionMethods</a>
+  
     <li><a href="./ActiveSupport.html">ActiveSupport</a>
   
     <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
@@ -114,13 +115,35 @@
   
     <li><a href="./RssTrends/Application.html">RssTrends::Application</a>
   
+    <li><a href="./AddCategoryToFeedEntry.html">AddCategoryToFeedEntry</a>
+  
+    <li><a href="./AddCategoryToTrends.html">AddCategoryToTrends</a>
+  
+    <li><a href="./AdminUser.html">AdminUser</a>
+  
+    <li><a href="./AdminUserTest.html">AdminUserTest</a>
+  
     <li><a href="./ApplicationController.html">ApplicationController</a>
   
     <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
   
     <li><a href="./BrowsingTest.html">BrowsingTest</a>
   
+    <li><a href="./CreateAdminNotes.html">CreateAdminNotes</a>
+  
     <li><a href="./CreateFeedEntries.html">CreateFeedEntries</a>
+  
+    <li><a href="./CreateFeedOrigins.html">CreateFeedOrigins</a>
+  
+    <li><a href="./CreateRelations.html">CreateRelations</a>
+  
+    <li><a href="./CreateTrends.html">CreateTrends</a>
+  
+    <li><a href="./DaemonGenerator.html">DaemonGenerator</a>
+  
+    <li><a href="./DeviseCreateAdminUsers.html">DeviseCreateAdminUsers</a>
+  
+    <li><a href="./FeedAdressTest.html">FeedAdressTest</a>
   
     <li><a href="./FeedEntriesController.html">FeedEntriesController</a>
   
@@ -130,17 +153,47 @@
   
     <li><a href="./FeedEntryTest.html">FeedEntryTest</a>
   
+    <li><a href="./FeedGen.html">FeedGen</a>
+  
+    <li><a href="./FeedOrigin.html">FeedOrigin</a>
+  
+    <li><a href="./FeedPrep.html">FeedPrep</a>
+  
     <li><a href="./FeedTest.html">FeedTest</a>
   
     <li><a href="./FeedsControllerTest.html">FeedsControllerTest</a>
   
+    <li><a href="./FeedsHelper.html">FeedsHelper</a>
+  
     <li><a href="./FeedsHelperTest.html">FeedsHelperTest</a>
+  
+    <li><a href="./Migration.html">Migration</a>
+  
+    <li><a href="./MoveAdminNotesToComments.html">MoveAdminNotesToComments</a>
   
     <li><a href="./Object.html">Object</a>
   
+    <li><a href="./Relation.html">Relation</a>
+  
+    <li><a href="./RelationTest.html">RelationTest</a>
+  
     <li><a href="./RemoveColumns.html">RemoveColumns</a>
   
-    <li><a href="./Test.html">Test</a>
+    <li><a href="./Trend.html">Trend</a>
+  
+    <li><a href="./TrendGen.html">TrendGen</a>
+  
+    <li><a href="./TrendTest.html">TrendTest</a>
+  
+    <li><a href="./TrendsController.html">TrendsController</a>
+  
+    <li><a href="./TrendsControllerHelperTest.html">TrendsControllerHelperTest</a>
+  
+    <li><a href="./TrendsControllerTest.html">TrendsControllerTest</a>
+  
+    <li><a href="./TrendsHelper.html">TrendsHelper</a>
+  
+    <li><a href="./TrendsHelperTest.html">TrendsHelperTest</a>
   
   </ul>
 </nav>
@@ -183,42 +236,6 @@ gems installed from the root of your application.</p>
 
     <!-- Methods -->
     
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
-
-    
-      <div id="method-i-normalize" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">normalize</span><span
-            class="method-args">(s)</span>
-          <span class="method-click-advice">click to toggle source</span>
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-
-          
-          <div class="method-source-code" id="normalize-source">
-            <pre><span class="ruby-comment"># File normailze_feeds.rb, line 1</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize</span>(<span class="ruby-identifier">s</span>)
-    <span class="ruby-identifier">s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r[ä]/</span>, <span class="ruby-string">&quot;ae&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r[ö]/</span>, <span class="ruby-string">&quot;oe&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r[ü]/</span>, <span class="ruby-string">&quot;ue&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r[ß]/</span>, <span class="ruby-string">&quot;ss&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r[^a-zA-Z\ ]/</span>,<span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">split</span>
-<span class="ruby-keyword">end</span></pre>
-          </div><!-- normalize-source -->
-          
-        </div>
-
-        
-
-        
-      </div><!-- normalize-method -->
-
-    
-    </section><!-- public-instance-method-details -->
-  
   </section><!-- 5Buntitled-5D -->
 
 </div><!-- documentation -->

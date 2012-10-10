@@ -1,24 +1,188 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html 
-     PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<!DOCTYPE html>
 
-<!--
-
-    RDoc Documentation
-
-  -->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 <head>
-  <title>RDoc Documentation</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-</head>
-<frameset rows="20%, 80%">
-    <frameset cols="25%,35%,45%">
-        <frame src="fr_file_index.html"   title="Files" name="Files" />
-        <frame src="fr_class_index.html"  name="Classes" />
-        <frame src="fr_method_index.html" name="Methods" />
-    </frameset>
-    <frame src="files/app/models/relation_rb.html" name="docwin" />
-</frameset>
-</html>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body>
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./Gemfile~.html">Gemfile~</a>
+  
+    <li class="file"><a href="./README.html">README</a>
+  
+    <li class="file"><a href="./README_rdoc.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./lib/daemon_generator/README.html">README</a>
+  
+    <li class="file"><a href="./lib/daemon_generator/daemon_generator/generators/daemon/USAGE.html">USAGE</a>
+  
+    <li class="file"><a href="./public/germanstopwords.html">germanstopwords</a>
+  
+    <li class="file"><a href="./public/robots_txt.html">robots</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./WillPaginate.html">WillPaginate</a>
+  
+    <li><a href="./WillPaginate/ActiveRecord.html">WillPaginate::ActiveRecord</a>
+  
+    <li><a href="./WillPaginate/ActiveRecord/RelationMethods.html">WillPaginate::ActiveRecord::RelationMethods</a>
+  
+    <li><a href="./WillPaginate/CollectionMethods.html">WillPaginate::CollectionMethods</a>
+  
+    <li><a href="./ActiveSupport.html">ActiveSupport</a>
+  
+    <li><a href="./ActiveSupport/TestCase.html">ActiveSupport::TestCase</a>
+  
+    <li><a href="./RssTrends.html">RssTrends</a>
+  
+    <li><a href="./RssTrends/Application.html">RssTrends::Application</a>
+  
+    <li><a href="./AddCategoryToFeedEntry.html">AddCategoryToFeedEntry</a>
+  
+    <li><a href="./AddCategoryToTrends.html">AddCategoryToTrends</a>
+  
+    <li><a href="./AdminUser.html">AdminUser</a>
+  
+    <li><a href="./AdminUserTest.html">AdminUserTest</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./BrowsingTest.html">BrowsingTest</a>
+  
+    <li><a href="./CreateAdminNotes.html">CreateAdminNotes</a>
+  
+    <li><a href="./CreateFeedEntries.html">CreateFeedEntries</a>
+  
+    <li><a href="./CreateFeedOrigins.html">CreateFeedOrigins</a>
+  
+    <li><a href="./CreateRelations.html">CreateRelations</a>
+  
+    <li><a href="./CreateTrends.html">CreateTrends</a>
+  
+    <li><a href="./DaemonGenerator.html">DaemonGenerator</a>
+  
+    <li><a href="./DeviseCreateAdminUsers.html">DeviseCreateAdminUsers</a>
+  
+    <li><a href="./FeedAdressTest.html">FeedAdressTest</a>
+  
+    <li><a href="./FeedEntriesController.html">FeedEntriesController</a>
+  
+    <li><a href="./FeedEntriesHelper.html">FeedEntriesHelper</a>
+  
+    <li><a href="./FeedEntry.html">FeedEntry</a>
+  
+    <li><a href="./FeedEntryTest.html">FeedEntryTest</a>
+  
+    <li><a href="./FeedGen.html">FeedGen</a>
+  
+    <li><a href="./FeedOrigin.html">FeedOrigin</a>
+  
+    <li><a href="./FeedPrep.html">FeedPrep</a>
+  
+    <li><a href="./FeedTest.html">FeedTest</a>
+  
+    <li><a href="./FeedsControllerTest.html">FeedsControllerTest</a>
+  
+    <li><a href="./FeedsHelper.html">FeedsHelper</a>
+  
+    <li><a href="./FeedsHelperTest.html">FeedsHelperTest</a>
+  
+    <li><a href="./Migration.html">Migration</a>
+  
+    <li><a href="./MoveAdminNotesToComments.html">MoveAdminNotesToComments</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./Relation.html">Relation</a>
+  
+    <li><a href="./RelationTest.html">RelationTest</a>
+  
+    <li><a href="./RemoveColumns.html">RemoveColumns</a>
+  
+    <li><a href="./Trend.html">Trend</a>
+  
+    <li><a href="./TrendGen.html">TrendGen</a>
+  
+    <li><a href="./TrendTest.html">TrendTest</a>
+  
+    <li><a href="./TrendsController.html">TrendsController</a>
+  
+    <li><a href="./TrendsControllerHelperTest.html">TrendsControllerHelperTest</a>
+  
+    <li><a href="./TrendsControllerTest.html">TrendsControllerTest</a>
+  
+    <li><a href="./TrendsHelper.html">TrendsHelper</a>
+  
+    <li><a href="./TrendsHelperTest.html">TrendsHelperTest</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<p>This is the API documentation for RDoc Documentation.
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
