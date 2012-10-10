@@ -5,7 +5,7 @@ class FeedEntry < ActiveRecord::Base
 	has_many :trends, :through => :relations	
 
 
-
+  # Methode löscht veraltete Feeds und updated die zugehörigen Trends
   def self.deletetrends(time)
     FeedEntry.destroy_all(['published_at < ?', time])
     Trend.counterupdate
@@ -25,4 +25,3 @@ end
 #  updated_at   :datetime        not null
 #  processed    :boolean         default(FALSE)
 #
-

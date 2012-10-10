@@ -15,7 +15,6 @@ class TrendGen < FeedPrep
 			unless feed_entry.processed == true
 				currentFeedId = feed_entry.id
 				currentFeedCat = feed_entry.category
-				puts "Test: #{currentFeedId}"
 				feeds = normalize(feed_entry.summary)
 				normalized_feed = nil
 				normalized_feed = deletewords(stopwords, feeds)
@@ -52,7 +51,6 @@ class TrendGen < FeedPrep
 								currentTrendId = currentTrend.id
 								relation = Relation.new(:feed_entry_id => currentFeedId, :trend_id => currentTrendId)
 								relation.save
-								puts "gespeichert"
 								# Überprüfen ob das aktuelle Trendwort schon in einer anderen Kategorie besteht
 								gT = Trend.find_by_trendy_word_and_category(w, "General")
 									# Falls es schon existiert neue Relation zur Kategorie "General" hinzufügen
@@ -75,8 +73,6 @@ class TrendGen < FeedPrep
 				
 					# Markieren der Feeds aus denen bereits Trends generiert, bzw. upgedated wurden (ermöglicht das Erkennen der neu hinzugekommenen Feeds nach einem Feed-Update)
 					feed_entry.update_attributes(:processed => true)
-					puts feed_entry.processed
-					puts feed_entry.id
 				end
 		end
 	end
