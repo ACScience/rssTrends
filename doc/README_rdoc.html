@@ -51,8 +51,6 @@
   
     <li class="file"><a href="./Gemfile.html">Gemfile</a>
   
-    <li class="file"><a href="./Gemfile~.html">Gemfile~</a>
-  
     <li class="file"><a href="./README.html">README</a>
   
     <li class="file"><a href="./README_rdoc.html">README</a>
@@ -187,9 +185,9 @@ pattern.</p>
 
 <p>This pattern splits the view (also called the presentation) into “dumb”
 templates that are primarily responsible for inserting pre-built data in
-between HTML tags. The model contains the “smart” domain objects (such as
-Account, Product, Person, Post) that holds all the business logic and knows
-how to persist themselves to a database. The controller handles the
+between HTML tags. The model contains the “smart” domain objects (such
+as Account, Product, Person, Post) that holds all the business logic and
+knows how to persist themselves to a database. The controller handles the
 incoming requests (such as Save New Account, Update Product, Show Post) by
 manipulating the model and directing data to the view.</p>
 
@@ -238,10 +236,11 @@ href="http://www.railstutorial.org/">www.railstutorial.org/</a></p>
 <p>Sometimes your application goes wrong. Fortunately there are a lot of tools
 that will help you debug it and get it back on the rails.</p>
 
-<p>First area to check is the application log files. Have “tail -f” commands
-running on the server.log and development.log. Rails will automatically
-display debugging and runtime information to these files. Debugging info
-will also be shown in the browser on requests from 127.0.0.1.</p>
+<p>First area to check is the application log files. Have “tail -f”
+commands running on the server.log and development.log. Rails will
+automatically display debugging and runtime information to these files.
+Debugging info will also be shown in the browser on requests from
+127.0.0.1.</p>
 
 <p>You can also log your own messages directly into the log file from your
 code using the Ruby logger class from inside your controllers. Example:</p>
@@ -320,10 +319,11 @@ you with a IRB prompt in the server window. Here you can do things like:</p>
 <h2 id="label-Console">Console</h2>
 
 <p>The console is a Ruby shell, which allows you to interact with your
-application’s domain model. Here you’ll have all parts of the application
-configured, just like it is when the application is running. You can
-inspect domain models, change values, and save to the database. Starting
-the script without arguments will launch it in the development environment.</p>
+application’s domain model. Here you’ll have all parts of the
+application configured, just like it is when the application is running.
+You can inspect domain models, change values, and save to the database.
+Starting the script without arguments will launch it in the development
+environment.</p>
 
 <p>To start the console, run <code>rails console</code> from the application
 directory.</p>
